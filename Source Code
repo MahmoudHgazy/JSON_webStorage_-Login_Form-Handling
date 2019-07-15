@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Store and retrieve data from local storage.</h2>
+<input type="text" value="" id="demo1">
+
+<input type="password" value="" id="demo2">
+
+
+<p>UserName: mohamed, password: 123456, this not a javascript
+handling this is JSON and LocalStorage Which can be done online without 
+Server</p>
+<p id="demo"></p>
+<button type="button" onclick="submit()">Submit</button>
+<script>
+function submit() {
+
+var user1, myJSON, text, mohamed;
+
+user1 = {};
+var x = document.getElementById("demo1").value;
+var y = document.getElementById("demo2").value;
+user1.userName = x;
+user1.password = y;
+myJSON = JSON.stringify(user1);
+localStorage.setItem("account1", myJSON);
+
+text = localStorage.getItem("account1");
+mohamed = JSON.parse(text);
+
+
+if (mohamed.userName == "mohamed" && mohamed.password == "123456") {
+document.getElementById("demo").innerHTML = "Welcom to Your Account";
+} else {
+document.getElementById("demo").innerHTML = "password or userName is not correct";
+}
+}
+</script>
+
+</body>
+</html>
